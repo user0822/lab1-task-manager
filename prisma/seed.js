@@ -3,18 +3,18 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
-  // 1. Створюємо користувача
+  
   const user = await prisma.user.create({
     data: {
       email: 'student@university.com',
-      password: 'securepassword123', // У реальності тут має бути хеш
+      password: 'securepassword123', 
       name: 'Test Student',
       role: 'ADMIN',
     },
   });
-  console.log(`👤 User created: ${user.name}`);
+  console.log(` User created: ${user.name}`);
 
-  // 2. Створюємо проєкт для цього користувача
+  
   const project = await prisma.project.create({
     data: {
       title: 'Lab Work 1',
@@ -22,9 +22,9 @@ async function main() {
       ownerId: user.id,
     },
   });
-  console.log(`📂 Project created: ${project.title}`);
+  console.log(` Project created: ${project.title}`);
 
-  // 3. Додаємо завдання до проєкту
+  
   await prisma.task.createMany({
     data: [
       {
@@ -44,7 +44,7 @@ async function main() {
       },
     ],
   });
-  console.log('✅ Tasks added!');
+  console.log(' Tasks added!');
 }
 
 main()
