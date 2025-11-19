@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Маршрути
+
 app.use('/api/projects', projectRoutes);
 
 app.get('/', (req, res) => {
