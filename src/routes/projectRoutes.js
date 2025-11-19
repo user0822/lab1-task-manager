@@ -4,10 +4,10 @@ import { getProjects, createProject } from '../controllers/projectController.js'
 
 const router = express.Router();
 
-// GET /api/projects
+
 router.get('/', getProjects);
 
-// POST /api/projects (з валідацією)
+
 router.post(
   '/',
   [
